@@ -9,6 +9,7 @@ import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -61,7 +62,7 @@ def load_data():
        df = pd.read_csv(csv_path)
        return df
     except FileNotFoundError:
-        st.error("Dataset not found! Please ensure 'phone_usage.csv' is in the parent directory.")
+        st.error("Dataset not found! Please ensure 'phone_usage.csv' is in the deployment directory.")
         return None
 
 @st.cache_data

@@ -56,8 +56,10 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv('../phone_usage.csv')
-        return df
+       # df = pd.read_csv('phone_usage.csv')
+       csv_path = os.path.join(os.path.dirname(__file__), 'phone_usage.csv')
+       df = pd.read_csv(csv_path)
+       return df
     except FileNotFoundError:
         st.error("Dataset not found! Please ensure 'phone_usage.csv' is in the parent directory.")
         return None
